@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="74.696322">
+    <testcase classname="comments feature in Realestate application" name="Verify search comment functionality by name, email id" time="74.696322">
+        <system-out><![CDATA[Given User is on login page.................................................passed
+When User enter username and password.......................................passed
+Then user clicks on Login button............................................passed
+And User is redirected to the dashboard.....................................passed
+Then User navigates to the comment section..................................passed
+When User clicks the search field...........................................passed
+And User enters the name"yash@gmail.com"....................................passed
+Then User clicks the search button..........................................passed
+]]></system-out>
+    </testcase>
+</testsuite>

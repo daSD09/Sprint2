@@ -8,7 +8,7 @@ import cucumber.api.java.Before;
 
 public class hooksclass {
 
-	WebDriver driver;
+	public static WebDriver driver;
 	@Before
 	public void initialization()
 	{
