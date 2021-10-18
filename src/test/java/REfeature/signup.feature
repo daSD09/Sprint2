@@ -11,8 +11,7 @@ Feature: comments feature in Realestate application
   Scenario Outline: Verify search comment functionality by name, email id
     When User clicks the search field
     And User enters the name"<bh>"
-    #Then User clicks the search button
-    #And User enters the name"<yash@gmail.com>"
+    And User enters the name"<yash@gmail.com>"
     Then User clicks the search button
 
     Examples: 
@@ -25,7 +24,7 @@ Feature: comments feature in Realestate application
     Then User selects any of one option"<commenttype>"
     Then User clicks the filter button
 
-    #And Admin fetch the result of the users
+   
     Examples: 
       | commenttype |
       | comments    |
@@ -34,14 +33,13 @@ Feature: comments feature in Realestate application
   @bulk_functionality
   Scenario Outline: Verify bulk functionality
     When User clicks bulk functions field
-    Then User selects any of one option"<bulk functions>"
+    Then User selects any of one option"<bulkoptions>"
     Then User clicks the apply button
 
-    #And Admin fetch the result of the users
-    Examples: 
-      | bulk functions |
-      | approve        |
-      | unapprove      |
+    
+      | bulkfunctions |
+      | approve       |
+      | unapprove     |
 
   @spam_funtion
   Scenario Outline: Verify spam comment functionality
@@ -70,37 +68,37 @@ Feature: comments feature in Realestate application
     When User clicks edit button
     Then User is directed to the edit comment box
     And User selects the text to be editted
-    Then User enters any option "<bold>"
-    Then User enters any option "<italics>"
+    Then User selects any of one option"<editoptions>"
     Then User selects update button
 
     Examples: 
-      | bold    |
-      | italics |
+      | editoptions |
+      | bold        |
+      | italics     |
 
   @quickedit_function
   Scenario Outline: Verify quick edit functionality
     When User clicks quick edit button
     And User is directed to quick edit comment box
     And User selects the text to be editted
-    Then User enters any option "<bold>"
-    Then User enters any option "<italics>"
+    Then User selects any of one option"<editoptions1>"
     Then User selects update comment button
 
     Examples: 
-      | bold    |
-      | italics |
+      | editoptions1 |
+      | bold        |
+      | italics     |
 
   @reply_function
   Scenario Outline: Verify reply functionality
     When User clicks reply button
     And User is directed to reply to comment box
     And User types the reply "<hello>"
-    Then User enters any option "<bold>"
-    Then User enters any option "<italics>"
-    Then User selects reply buttton
+    Then User selects any of one option"<editoptions2>"
+    Then User selects approve and reply button
 
     Examples: 
-      | hello   |
-      | bold    |
-      | italics |
+      | editoptions2 |
+      | hello       |
+      | bold        |
+      | italics     |

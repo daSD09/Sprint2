@@ -8,7 +8,7 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/java/REfeature",
 	glue = { "REstepdefinition", "hooks"},
-	tags = {" @search_funtion"}, 
+	tags = {"  @edit_function"}, 
 	monochrome = true,
 	plugin = { "pretty", "html:target/cucumber-pretty", "junit:target/report.xml", "json:target/cucumber.json" })
 

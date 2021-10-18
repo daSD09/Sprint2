@@ -13,19 +13,20 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import hooks.hooksclass;
 //import hooks.hooksclass;
 
 public class stepdefinition {
 	
 	
 	
-	//WebDriver driver = hooksclass.driver;
-	WebDriver driver;
+	WebDriver driver = hooksclass.driver;
+	//WebDriver driver;
 			@Given("User is on login page")
 			public void user_is_on_login_page() {
-				System.setProperty("webdriver.chrome.driver", "C:\\Users\\SHRAMANA DAS\\CAPGEMINI_JSWorkspace\\chromedriver.exe");
-				driver = new ChromeDriver();
-			    driver.get("http://realty-real-estatem1.upskills.in/my-profile/");
+				//System.setProperty("webdriver.chrome.driver", "C:\\Users\\SHRAMANA DAS\\CAPGEMINI_JSWorkspace\\chromedriver.exe");
+				//driver = new ChromeDriver();
+			    //driver.get("http://realty-real-estatem1.upskills.in/my-profile/");
 			}
 			
 			@When("User enter username and password")
@@ -159,13 +160,16 @@ public void user_selects_any_of_one_commenttype(String commenttype)  {
 		//driver.findElement(By.id("input-approved")).click();
 		Select s = new Select(driver.findElement(By.xpath("//*[@id=\"filter-by-comment-type\"]")));
 		Thread.sleep(1000);
-		if (commenttype.equalsIgnoreCase("comments") || commenttype.equalsIgnoreCase("pings")) {
+		
+	}
+		/*if (commenttype.equalsIgnoreCase("comments") || commenttype.equalsIgnoreCase("pings")) {
 			s.selectByVisibleText(commenttype);
 		} else {
 			System.out.println("Wrong input");
 			Assert.fail();
 		}
-	} catch (Exception e) {
+	}*/
+	catch (Exception e) {
 		System.out.println("Exception Message:"+e);
 		Assert.fail();
 	}
@@ -195,7 +199,7 @@ public void user_clicks_bulk_functions_field() {
     //throw new cucumber.api.PendingException();
 	 try {
 			Thread.sleep(3000);
-			driver.findElement(By.xpath("")).click();
+			driver.findElement(By.xpath("//*[@id=\"bulk-action-selector-top\"]")).click();
 
 
 		} catch (Exception e) {
@@ -204,10 +208,42 @@ public void user_clicks_bulk_functions_field() {
 		}
 }
 @Then("User selects any of one bulkoptions{string}")
-public void user_selects_any_of_one_option(String string) {
+public void user_selects_any_of_one_bulkoptions(String bulkoptions) {
     // Write code here that turns the phrase above into concrete actions
-    throw new cucumber.api.PendingException();
+    //throw new cucumber.api.PendingException();
+	try {
+		//driver.findElement(By.id("input-approved")).click();
+		Select s = new Select(driver.findElement(By.xpath("//*[@id=\"bulk-action-selector-top\"]")));
+		Thread.sleep(1000);
+		if (bulkoptions.equalsIgnoreCase("approve") || bulkoptions.equalsIgnoreCase("unapprove")) {
+			s.selectByVisibleText(bulkoptions);
+		} else {
+			System.out.println("Wrong input");
+			Assert.fail();
+		}
+	} catch (Exception e) {
+		System.out.println("Exception Message:"+e);
+		Assert.fail();
+	}
 }
+
+
+@Then("User clicks the apply button")
+public void user_clicks_the_apply_button() {
+    // Write code here that turns the phrase above into concrete actions
+    //throw new cucumber.api.PendingException();
+	try {
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//*[@id=\"doaction\"]")).click();
+
+
+	} catch (Exception e) {
+		System.out.println(e);
+		Assert.fail();
+	}
+}  
+
+
 
 //spamfunction
 @When("User clicks the spam button")
@@ -238,7 +274,7 @@ public void user_is_directed_to_the_spam_folder() {
 	}
 }
 
-//not spam button
+
 @Then("User selects any of one spamoptions{string}")
 public void user_selects_any_of_one_options(String spamoptions )  {
     // Write code here that turns the phrase above into concrete actions
@@ -307,33 +343,27 @@ public void user_is_directed_to_the_trash_folder() {
 	}
 }
 
-@Then("User  enters any option5{string} {string}")
-public void user_enters_any_option5(String string, String string3) {
+@Then("User selects any of one trashoptions{string}")
+public void user_selects_any_of_one_trashoptions(String trashoptions )  {
     // Write code here that turns the phrase above into concrete actions
 	try {
-		Thread.sleep(3000);
-		driver.findElement(By.xpath("//*[@id=\"comment-2344\"]/td[2]/div[3]/span[2]/a")).sendKeys("spam");
-
+		//driver.findElement(By.id("input-approved")).click();
+		Select s = new Select(driver.findElement(By.xpath("//*[@id=\"comment-2330\"]/td[2]/div[3]/span[6]/a")));
+		Thread.sleep(1000);
+		if (trashoptions.equalsIgnoreCase("restore") || trashoptions.equalsIgnoreCase("delete permanently")) {
+			s.selectByVisibleText(trashoptions);
+		} else {
+			System.out.println("Wrong input");
+			Assert.fail();
+		}
 	} catch (Exception e) {
-		System.out.println(e);
+		System.out.println("Exception Message:"+e);
 		Assert.fail();
 	}
 }
 
 
-@Then("User  enters any option7{string} {string}")
-public void user_enters_any_option7(String string, String string3) {
-    // Write code here that turns the phrase above into concrete actions
-	try {
-		Thread.sleep(3000);
-		driver.findElement(By.xpath("//*[@id=\"comment-2340\"]/td[2]/div[3]/span[3]/a")).sendKeys("delete permanently");
 
-	} catch (Exception e) {
-		System.out.println(e);
-		Assert.fail();
-	}
-    
-}
 
 @Then("^User enters any option \"([^\"]*)\"$")
 public void userEntersAnyOption(String arg) throws Throwable {
@@ -352,8 +382,8 @@ public void user_clicks_edit_button() {
     // Write code here that turns the phrase above into concrete actions
     //throw new cucumber.api.PendingException();
 	try {
-		Thread.sleep(3000);
-		driver.findElement(By.xpath("//*[@id=\"comment-2345\"]/td[2]/div[3]/span[5]")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//*[@id=\"comment-2348\"]/td[2]/div[3]/span[5]/a")).click();
 
 	} catch (Exception e) {
 		System.out.println(e);
@@ -377,8 +407,8 @@ public void user_is_directed_to_the_edit_comment_box() {
 }
 }
 
-@Then("User selects the text to be editted")
-public void user_selects_the_text_to_be_editted() {
+@Then("User selects the text to be editted11")
+public void user_selects_the_text_to_be_editted11() {
     // Write code here that turns the phrase above into concrete actions
     //throw new cucumber.api.PendingException();
 	try {
@@ -391,30 +421,21 @@ public void user_selects_the_text_to_be_editted() {
 	}
 }
 
-@Then("User selects any option <bold>")
-public void user_selects_any_optionitalics() {
+@Then("User selects any of one editoptions{string}")
+public void user_selects_any_of_one_editoptions(String editoptions )  {
     // Write code here that turns the phrase above into concrete actions
-    //throw new cucumber.api.PendingException();
 	try {
-		Thread.sleep(3000);
-		driver.findElement(By.xpath("//*[@id=\"qt_content_strong\"]")).click();
-
+		//driver.findElement(By.id("input-approved")).click();
+		Select s = new Select(driver.findElement(By.xpath("//*[@id=\"comment-2330\"]/td[2]/div[3]/span[6]/a")));
+		Thread.sleep(1000);
+		if (editoptions.equalsIgnoreCase("bold") || editoptions.equalsIgnoreCase("italics")) {
+			s.selectByVisibleText(editoptions);
+		} else {
+			System.out.println("Wrong input");
+			Assert.fail();
+		}
 	} catch (Exception e) {
-		System.out.println(e);
-		Assert.fail();
-	}
-}
-
-@Then("User selects any option<italics>")
-public void user_selects_any_option_italics() {
-    // Write code here that turns the phrase above into concrete actions
-    //throw new cucumber.api.PendingException();
-	try {
-		Thread.sleep(3000);
-		driver.findElement(By.xpath("//*[@id=\"qt_content_em\"]")).click();
-
-	} catch (Exception e) {
-		System.out.println(e);
+		System.out.println("Exception Message:"+e);
 		Assert.fail();
 	}
 }
@@ -438,61 +459,158 @@ public void user_selects_update_button() {
 @When("User clicks quick edit button")
 public void user_clicks_quick_edit_button() {
     // Write code here that turns the phrase above into concrete actions
-    throw new cucumber.api.PendingException();
+    //throw new cucumber.api.PendingException();
+	try {
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//*[@id=\"comment-2348\"]/td[2]/div[3]/span[4]/a")).click();
+
+	} catch (Exception e) {
+		System.out.println(e);
+	}
 }
 
-@When("User is directed to quick edit comment box")
-public void user_is_directed_to_quick_edit_comment_box() {
+
+@Then("User is directed to the edit comment box1")
+public void user_is_directed_to_the_edit_comment_box1() {
     // Write code here that turns the phrase above into concrete actions
-    throw new cucumber.api.PendingException();
+    //throw new cucumber.api.PendingException();
+	try {
+		Thread.sleep(3000);
+		WebElement obj = driver.findElement(By.xpath("//*[@id=\"editlegend\"]"));
+		obj.click();
+		
+	} catch (Exception e) {
+    	System.out.println(e);
+    	Assert.fail();
+	
+}
 }
 
-@When("User selects the text to be editted2")
-public void user_selects_the_text_to_be_editted2() {
+@Then("User selects the text to be editted1")
+public void user_selects_the_text_to_be_editted1() {
     // Write code here that turns the phrase above into concrete actions
-    throw new cucumber.api.PendingException();
+    //throw new cucumber.api.PendingException();
+	try {
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//*[@id=\"replycontent\"]")).click();
+
+	} catch (Exception e) {
+		System.out.println(e);
+		Assert.fail();
+	}
 }
 
-@Then("User selects update comment option")
-public void user_selects_update_comment_option() {
+@Then("User selects any of one editoptions2{string}")
+public void user_selects_any_of_one_editoptions2(String editoptions2 )  {
     // Write code here that turns the phrase above into concrete actions
-    throw new cucumber.api.PendingException();
+	try {
+		//driver.findElement(By.id("input-approved")).click();
+		Select s = new Select(driver.findElement(By.xpath("//*[@id=\"qt_replycontent_strong\"]")));
+		Thread.sleep(1000);
+		if (editoptions2.equalsIgnoreCase("bold") || editoptions2.equalsIgnoreCase("italics")) {
+			s.selectByVisibleText(editoptions2);
+		} else {
+			System.out.println("Wrong input");
+			Assert.fail();
+		}
+	} catch (Exception e) {
+		System.out.println("Exception Message:"+e);
+		Assert.fail();
+	}
 }
 
+@Then("User selects update comment button")
+public void user_selects_update_comment_button() {
+    // Write code here that turns the phrase above into concrete actions
+    //throw new cucumber.api.PendingException();
+	try {
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//*[@id=\"savebtn\"]")).click();
+
+	} catch (Exception e) {
+		System.out.println(e);
+		Assert.fail();
+	}
+}
+
+
+//replyfunction
 @When("User clicks reply button")
 public void user_clicks_reply_button() {
     // Write code here that turns the phrase above into concrete actions
-    throw new cucumber.api.PendingException();
+    //throw new cucumber.api.PendingException();
+	try {
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//*[@id=\"comment-2348\"]/td[2]/div[3]/span[3]/a")).click();
+
+	} catch (Exception e) {
+		System.out.println(e);
+	}
 }
 
-@When("User is directed to reply to comment box")
-public void user_is_directed_to_reply_to_comment_box() {
+
+@And("User is directed to the reply to comment box")
+public void user_is_directed_to_the_reply_to_comment_box() {
     // Write code here that turns the phrase above into concrete actions
-    throw new cucumber.api.PendingException();
+    //throw new cucumber.api.PendingException();
+	try {
+		Thread.sleep(3000);
+		WebElement obj = driver.findElement(By.xpath("//*[@id=\"replyhead\"]"));
+		obj.click();
+		
+	} catch (Exception e) {
+    	System.out.println(e);
+    	Assert.fail();
+	
+}
+}
+@And("User enters the name1{string}")
+public void user_enters_the_name1(String string) {
+	
+		try {
+			Thread.sleep(3000);
+			driver.findElement(By.xpath("//*[@id=\"replycontent\"]")).sendKeys("hello");
+
+		} catch (Exception e) {
+			System.out.println(e);
+			Assert.fail();
+		}
+		}
+
+
+
+
+@Then("User selects any of one editoptions3{string}")
+public void user_selects_any_of_one_editoptions3(String editoptions3 )  {
+    // Write code here that turns the phrase above into concrete actions
+	try {
+		//driver.findElement(By.id("input-approved")).click();
+		Select s = new Select(driver.findElement(By.xpath("//*[@id=\"qt_replycontent_strong\"]")));
+		Thread.sleep(1000);
+		if (editoptions3.equalsIgnoreCase("bold") || editoptions3.equalsIgnoreCase("italics")) {
+			s.selectByVisibleText(editoptions3);
+		} else {
+			System.out.println("Wrong input");
+			Assert.fail();
+		}
+	} catch (Exception e) {
+		System.out.println("Exception Message:"+e);
+		Assert.fail();
+	}
 }
 
-@When("User types the reply bold")
-public void user_types_the_reply_bold() {
+@Then("User selects approve and reply button")
+public void user_selects_approve_and_reply_button() {
     // Write code here that turns the phrase above into concrete actions
-    throw new cucumber.api.PendingException();
-}
+    //throw new cucumber.api.PendingException();
+	try {
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//*[@id=\"replybtn\"]")).click();
 
-@Then("User selects any option<bold>")
-public void user_selects_any_option_bold() {
-    // Write code here that turns the phrase above into concrete actions
-    throw new cucumber.api.PendingException();
-}
-
-@Then("User selects reply option")
-public void user_selects_reply_option() {
-    // Write code here that turns the phrase above into concrete actions
-    throw new cucumber.api.PendingException();
-}
-
-@When("User types the reply italics")
-public void user_types_the_reply_italics() {
-    // Write code here that turns the phrase above into concrete actions
-    throw new cucumber.api.PendingException();
+	} catch (Exception e) {
+		System.out.println(e);
+		Assert.fail();
+	}
 }
 }
 

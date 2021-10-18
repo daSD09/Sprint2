@@ -11,7 +11,7 @@
         "steps": [
           {
             "result": {
-              "duration": 14436456400,
+              "duration": 217400,
               "status": "passed"
             },
             "line": 4,
@@ -23,8 +23,9 @@
           },
           {
             "result": {
-              "duration": 3342208700,
-              "status": "passed"
+              "error_message": "java.lang.AssertionError\r\n\tat org.junit.Assert.fail(Assert.java:87)\r\n\tat org.junit.Assert.fail(Assert.java:96)\r\n\tat REstepdefinition.stepdefinition.user_enter_username_and_password(stepdefinition.java:41)\r\n\tat ✽.User enter username and password(file:src/test/java/REfeature/signup.feature:5)\r\n",
+              "duration": 3185701800,
+              "status": "failed"
             },
             "line": 5,
             "name": "User enter username and password",
@@ -35,8 +36,8 @@
           },
           {
             "result": {
-              "duration": 16653214000,
-              "status": "passed"
+              "duration": 7900,
+              "status": "skipped"
             },
             "line": 6,
             "name": "user clicks on Login button",
@@ -47,8 +48,8 @@
           },
           {
             "result": {
-              "duration": 3026311600,
-              "status": "passed"
+              "duration": 4400,
+              "status": "skipped"
             },
             "line": 7,
             "name": "User is redirected to the dashboard",
@@ -59,8 +60,8 @@
           },
           {
             "result": {
-              "duration": 6441722500,
-              "status": "passed"
+              "duration": 3700,
+              "status": "skipped"
             },
             "line": 8,
             "name": "User navigates to the comment section",
@@ -72,11 +73,11 @@
         ]
       },
       {
-        "start_timestamp": "2021-10-17T20:03:45.460Z",
+        "start_timestamp": "2021-10-18T07:00:05.017Z",
         "before": [
           {
             "result": {
-              "duration": 16363449100,
+              "duration": 21487631100,
               "status": "passed"
             },
             "match": {
@@ -84,14 +85,14 @@
             }
           }
         ],
-        "line": 20,
-        "name": "Verify search comment functionality by name, email id",
+        "line": 76,
+        "name": "Verify edit functionality",
         "description": "",
-        "id": "comments-feature-in-realestate-application;verify-search-comment-functionality-by-name--email-id;;2",
+        "id": "comments-feature-in-realestate-application;verify-edit-functionality;;2",
         "after": [
           {
             "result": {
-              "duration": 422666400,
+              "duration": 2199924900,
               "status": "passed"
             },
             "match": {
@@ -104,50 +105,224 @@
         "steps": [
           {
             "result": {
-              "duration": 3306278500,
-              "status": "passed"
+              "duration": 3400,
+              "status": "skipped"
             },
-            "line": 12,
-            "name": "User clicks the search field",
+            "line": 68,
+            "name": "User clicks edit button",
             "match": {
-              "location": "stepdefinition.user_clicks_the_search_field()"
+              "location": "stepdefinition.user_clicks_edit_button()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 3163126300,
-              "status": "passed"
+              "duration": 3400,
+              "status": "skipped"
             },
-            "line": 13,
-            "name": "User enters the name\"yash@gmail.com\"",
+            "line": 69,
+            "name": "User is directed to the edit comment box",
             "match": {
-              "arguments": [
-                {
-                  "val": "\"yash@gmail.com\"",
-                  "offset": 20
-                }
-              ],
-              "location": "stepdefinition.user_enters_the_name(String)"
+              "location": "stepdefinition.user_is_directed_to_the_edit_comment_box()"
             },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 70,
+            "name": "User selects the text to be editted",
+            "match": {},
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 7531660900,
-              "status": "passed"
+              "status": "undefined"
             },
-            "line": 16,
-            "name": "User clicks the search button",
+            "line": 71,
+            "name": "User selects any of one option\"bold\"",
+            "match": {},
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 3700,
+              "status": "skipped"
+            },
+            "line": 72,
+            "name": "User selects update button",
             "match": {
-              "location": "stepdefinition.user_clicks_the_search_button1()"
+              "location": "stepdefinition.user_selects_update_button()"
             },
             "keyword": "Then "
           }
         ],
         "tags": [
           {
-            "name": "@search_funtion"
+            "name": "@edit_function"
+          }
+        ]
+      },
+      {
+        "line": 3,
+        "name": "Verify Login functionality",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 137300,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "User is on login page",
+            "match": {
+              "location": "stepdefinition.user_is_on_login_page()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "error_message": "java.lang.AssertionError\r\n\tat org.junit.Assert.fail(Assert.java:87)\r\n\tat org.junit.Assert.fail(Assert.java:96)\r\n\tat REstepdefinition.stepdefinition.user_enter_username_and_password(stepdefinition.java:41)\r\n\tat ✽.User enter username and password(file:src/test/java/REfeature/signup.feature:5)\r\n",
+              "duration": 3050419100,
+              "status": "failed"
+            },
+            "line": 5,
+            "name": "User enter username and password",
+            "match": {
+              "location": "stepdefinition.user_enter_username_and_password()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 9300,
+              "status": "skipped"
+            },
+            "line": 6,
+            "name": "user clicks on Login button",
+            "match": {
+              "location": "stepdefinition.user_clicks_on_Login_button()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 5900,
+              "status": "skipped"
+            },
+            "line": 7,
+            "name": "User is redirected to the dashboard",
+            "match": {
+              "location": "stepdefinition.user_is_redirected_to_the_dashboard()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 5000,
+              "status": "skipped"
+            },
+            "line": 8,
+            "name": "User navigates to the comment section",
+            "match": {
+              "location": "stepdefinition.user_navigates_to_the_comment_section()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-10-18T07:00:31.929Z",
+        "before": [
+          {
+            "result": {
+              "duration": 181789116500,
+              "status": "passed"
+            },
+            "match": {
+              "location": "hooksclass.initialization()"
+            }
+          }
+        ],
+        "line": 77,
+        "name": "Verify edit functionality",
+        "description": "",
+        "id": "comments-feature-in-realestate-application;verify-edit-functionality;;3",
+        "after": [
+          {
+            "result": {
+              "duration": 320589200,
+              "status": "passed"
+            },
+            "match": {
+              "location": "hooksclass.closedriver()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 5000,
+              "status": "skipped"
+            },
+            "line": 68,
+            "name": "User clicks edit button",
+            "match": {
+              "location": "stepdefinition.user_clicks_edit_button()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 5200,
+              "status": "skipped"
+            },
+            "line": 69,
+            "name": "User is directed to the edit comment box",
+            "match": {
+              "location": "stepdefinition.user_is_directed_to_the_edit_comment_box()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 70,
+            "name": "User selects the text to be editted",
+            "match": {},
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 71,
+            "name": "User selects any of one option\"italics\"",
+            "match": {},
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 5100,
+              "status": "skipped"
+            },
+            "line": 72,
+            "name": "User selects update button",
+            "match": {
+              "location": "stepdefinition.user_selects_update_button()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@edit_function"
           }
         ]
       }

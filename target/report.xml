@@ -1,14 +1,43 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="74.696322">
-    <testcase classname="comments feature in Realestate application" name="Verify search comment functionality by name, email id" time="74.696322">
-        <system-out><![CDATA[Given User is on login page.................................................passed
-When User enter username and password.......................................passed
-Then user clicks on Login button............................................passed
-And User is redirected to the dashboard.....................................passed
-Then User navigates to the comment section..................................passed
-When User clicks the search field...........................................passed
-And User enters the name"yash@gmail.com"....................................passed
-Then User clicks the search button..........................................passed
-]]></system-out>
+<testsuite failures="2" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="2" time="212.038315">
+    <testcase classname="comments feature in Realestate application" name="Verify edit functionality" time="26.877445">
+        <failure message="java.lang.AssertionError&#13;&#10;&#9;at org.junit.Assert.fail(Assert.java:87)&#13;&#10;&#9;at org.junit.Assert.fail(Assert.java:96)&#13;&#10;&#9;at REstepdefinition.stepdefinition.user_enter_username_and_password(stepdefinition.java:41)&#13;&#10;&#9;at ✽.User enter username and password(file:src/test/java/REfeature/signup.feature:5)&#13;&#10;"><![CDATA[Given User is on login page.................................................passed
+When User enter username and password.......................................failed
+Then user clicks on Login button............................................skipped
+And User is redirected to the dashboard.....................................skipped
+Then User navigates to the comment section..................................skipped
+When User clicks edit button................................................skipped
+Then User is directed to the edit comment box...............................skipped
+And User selects the text to be editted.....................................undefined
+Then User selects any of one option"bold"...................................undefined
+Then User selects update button.............................................skipped
+
+StackTrace:
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.fail(Assert.java:96)
+	at REstepdefinition.stepdefinition.user_enter_username_and_password(stepdefinition.java:41)
+	at ✽.User enter username and password(file:src/test/java/REfeature/signup.feature:5)
+]]></failure>
+    </testcase>
+    <testcase classname="comments feature in Realestate application" name="Verify edit functionality 2" time="185.16087">
+        <failure message="java.lang.AssertionError&#13;&#10;&#9;at org.junit.Assert.fail(Assert.java:87)&#13;&#10;&#9;at org.junit.Assert.fail(Assert.java:96)&#13;&#10;&#9;at REstepdefinition.stepdefinition.user_enter_username_and_password(stepdefinition.java:41)&#13;&#10;&#9;at ✽.User enter username and password(file:src/test/java/REfeature/signup.feature:5)&#13;&#10;"><![CDATA[Given User is on login page.................................................passed
+When User enter username and password.......................................failed
+Then user clicks on Login button............................................skipped
+And User is redirected to the dashboard.....................................skipped
+Then User navigates to the comment section..................................skipped
+When User clicks edit button................................................skipped
+Then User is directed to the edit comment box...............................skipped
+And User selects the text to be editted.....................................undefined
+Then User selects any of one option"italics"................................undefined
+Then User selects update button.............................................skipped
+
+StackTrace:
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.fail(Assert.java:96)
+	at REstepdefinition.stepdefinition.user_enter_username_and_password(stepdefinition.java:41)
+	at ✽.User enter username and password(file:src/test/java/REfeature/signup.feature:5)
+]]></failure>
     </testcase>
 </testsuite>
